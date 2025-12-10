@@ -7,11 +7,17 @@ load_dotenv()
 
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
-response = client.models.generate_content(
-    model="gemini-2.5-flash",
-    contents="Explain how AI works in a few words",
-)
+while(True):
+    userResponse = input("You: ")
 
-print(response.text)
+    if userResponse == "End":
+        break
+
+    response = client.models.generate_content(
+        model="gemini-2.5-flash",
+        contents=userResponse,
+    )
+
+    print(response.text)
   
 
