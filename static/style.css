@@ -6,17 +6,17 @@
     display: grid;
     grid-template-areas: 
         "header header header"
-        "links chatBox words"
-        "links chatBox words"
+        "translations chatBox mistakes"
+        "translations chatBox mistakes"
 }
 .header{
     text-align: center;
     grid-area: header;
     margin: 20px;
 }
-.links{
+.translations{
     text-align: center;
-    grid-area: links;
+    grid-area: translations;
 }
 .chatBox{
     grid-area: chatBox;
@@ -63,7 +63,7 @@
     min-height: 60px;
     resize: none;
 }
-.words{
+.mistakes{
     text-align: center;
-    grid-area: words;
+    grid-area: mistakes;
 }
