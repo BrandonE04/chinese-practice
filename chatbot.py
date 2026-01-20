@@ -8,11 +8,11 @@ load_dotenv()
 
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
-while(True):
-    userResponse = input("You: ")
+def queryChatBot(userResponse):
+    #userResponse = input("You: ")
 
     if userResponse == "End":
-        break
+        return
 
     response = client.models.generate_content(
         model="gemini-2.5-flash",
@@ -39,7 +39,7 @@ while(True):
         contents=userResponse,
     )
 
-    lines = response.text.splitlines()
+    return (response.text)
 
     if response.text[0:5] == "ERROR":
         error = response.text

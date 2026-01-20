@@ -13,14 +13,23 @@
         </div>
         <div class="translations">
             <h1>Translations</h1>
+            <p>{{english}}</p>
         </div>
         <div class="chatBox">
             <div class="chats">
-                <p class="userMessage">Example User Text</p>
-                <p class="botMessage">Example Bot Text</p>
+                {%for i in range(contextLength)%}
+                    {%if i%2==0 %}
+                        <p class="userMessage">{{context[i]}}</p>
+                    {%else%}
+                        <p class="botMessage">{{context[i]}}</p>
+                    {%endif%}
+                {%endfor%}
             </div>
             <div class="textMessage">
-                <textarea name="" class="textInput"></textarea> 
+                <form action="./sendChat" method="POST">
+                    <textarea name="userMessage" class="textInput"></textarea>
+                    <button type="submit"></button>
+                </form>
             </div>
         </div>
         <div class="mistakes">
